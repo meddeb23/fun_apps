@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoItem from "./TodoItem";
 
 const TODOS = [
   {
@@ -22,17 +23,31 @@ const TODOS = [
 ];
 
 export default function Body() {
-  const [todoList, settodoList] = useState(TODOS);
+  const [todoList] = useState(TODOS);
 
   return (
-    <div className="bg-gray-900 w-screen h-screen flex justify-start items-center">
-      <ul className="w-9/12 m-auto">
-        {todoList.map((todo) => (
-          <li key={todo.id} className="py-4 px-6 m-2 rounded-md bg-white">
-            {todo.title}
-          </li>
-        ))}
-      </ul>
+    <div
+      className="bg-gray-900 w-screen h-screen flex 
+    justify-center items-center"
+    >
+      <div className="flex flex-col w-9/12 m-auto">
+        <div className="flex justify-between items-center gap-2">
+          <input
+            type="text"
+            className=" w-9/12 block
+                  outline-none rounded-md py-2 px-4"
+            placeholder="What you will do..."
+          />
+          <button className="rounded-md bg-green-400 py-2 px-4 text-white">
+            Add Todo
+          </button>
+        </div>
+        <ul className="">
+          {todoList.map((todo) => (
+            <TodoItem item={todo} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
