@@ -1,8 +1,8 @@
+import Main from "./components/Main";
 import "./styles/main.css";
-import Body from "./components/Body";
 
 function App() {
-  return <Body />;
+  return <Main />;
 }
 
 export default App;
