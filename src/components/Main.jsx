@@ -5,6 +5,10 @@ const Text =
 
 export default function Main() {
   const [text, settext] = useState(Text);
+  const [errorsCount, seterrorsCount] = useState(0);
+  const [currentSpeed, setcurrentSpeed] = useState(0);
+  const [accuracy, setaccuracy] = useState(0);
+  const [score, setscore] = useState(0);
   return (
     <main className="min-h-screen bg-gray-900 pt-10 text-white">
       <div className="w-9/12 mx-auto">
@@ -13,9 +17,14 @@ export default function Main() {
         </div>
         <input
           type="text"
-          className="mt-4 block w-full rounded-md bg-white text-black p-4"
+          className="mt-4 block w-full rounded-md bg-white text-black p-4 outline-none"
           placeholder="Enter Text here..."
         />
+        <div className="flex space-x-6 my-10">
+          <div className="text-red-500">Errors : {errorsCount}</div>
+          <div className="text-green-500">Accuracy : {accuracy}</div>
+          <div className="">Speed : {currentSpeed} WPM</div>
+        </div>
       </div>
     </main>
   );
